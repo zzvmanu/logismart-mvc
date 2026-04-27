@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Admin";
+}
+
+<div class="admin-page">
+
+    <h1>Painel Administrativo</h1>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard">
+
+        <div class="card">
+            <h3>Pedidos</h3>
+            <p>12</p>
+        </div>
+
+        <div class="card">
+            <h3>Em andamento</h3>
+            <p>5</p>
+        </div>
+
+        <div class="card">
+            <h3>Entregues</h3>
+            <p>7</p>
+        </div>
+
+    </div>
+
+    <!-- TABELA -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>João</td>
+                <td class="andamento">Em andamento</td>
+                <td>
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Maria</td>
+                <td class="concluido">Concluído</td>
+                <td>
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

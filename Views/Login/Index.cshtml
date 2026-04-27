@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+<div class="login">
+
+<div class="container">
+    <div class="card">
+
+        <!-- ABAS -->
+        <div class="tabs">
+            <button id="loginBtn" class="active" type="button">Login</button>
+            <button id="registerBtn" type="button">Cadastro</button>
+        </div>
+
+        <!-- LOGIN -->
+        <form id="loginForm" asp-controller="Login" asp-action="Login" method="post">
+            <input type="email" name="email" placeholder="Seu email" required>
+            <input type="password" name="senha" placeholder="Sua senha" required>
+
+            <a href="#" class="forgot">Esqueceu a senha?</a>
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <!-- CADASTRO -->
+        <form id="registerForm" asp-controller="Login" asp-action="Cadastro" method="post" class="hidden">
+            <input type="text" name="nome" placeholder="Seu nome" required>
+            <input type="email" name="email" placeholder="Seu email" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <input type="password" name="confirmarSenha" placeholder="Confirmar senha" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <!-- ERRO -->
+        <p id="erro" class="erro-msg">@ViewBag.Erro</p>
+
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    <script src="~/js/script.js"></script>
+}

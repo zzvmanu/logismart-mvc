@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Cliente";
+}
+
+<div class="cliente-page">
+
+    <h1>Meus Pedidos 📦</h1>
+
+    <!-- BOTÃO NOVO PEDIDO -->
+    <button class="btn-novo">+ Novo Pedido</button>
+
+    <!-- LISTA DE PEDIDOS -->
+    @foreach (var pedido in ViewBag.Pedidos)
+    {
+        <div class="pedido">
+            <p>@pedido</p>
+        </div>
+    }
+
+      
+
+    </div>
+
+</div>

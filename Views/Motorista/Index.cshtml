@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Motorista";
+}
+
+<div class="motorista-page">
+
+    @model List<Entrega>
+
+    <h1>Minhas Entregas 🚚</h1>
+
+    @foreach (var entrega in Model)
+    {
+        <div class="entrega">
+            <p><strong>Pedido #@entrega.Id</strong></p>
+            <p><strong>Cliente:</strong> @entrega.Cliente</p>
+            <p><strong>Endereço:</strong> @entrega.Endereco</p>
+            <p><strong>Status:</strong> @entrega.Status</p>
+
+            @if (entrega.Status == "Em andamento")
+            {
+                <button class= "btn-concluir" > Marcar como concluído</button>
+            }
+        </div>
+    }
+
+    </div>
+
+</div>

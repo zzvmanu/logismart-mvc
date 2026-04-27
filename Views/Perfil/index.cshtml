@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Perfil";
+}
+
+<div class="perfil-page">
+
+    <div class="perfil-container">
+        <div class="perfil-card">
+
+            <h2>Meu Perfil</h2>
+
+            <form asp-controller="Perfil" asp-action="Salvar" method="post">
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Nome</label>
+                        <input type="text" name="nome" placeholder="Seu nome">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Sobrenome</label>
+                        <input type="text" name="sobrenome" placeholder="Seu sobrenome">
+                    </div>
+                </div>
+
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Seu email">
+
+                <label>Telefone</label>
+                <input type="text" name="telefone" placeholder="(11) 99999-9999">
+
+                <label>Endereço</label>
+                <input type="text" name="endereco" placeholder="Rua, número, bairro">
+
+                <label>Cidade</label>
+                <input type="text" name="cidade" placeholder="Cidade">
+
+                <label>Estado</label>
+                <input type="text" name="estado" placeholder="Estado">
+
+                <button type="submit">Salvar alterações</button>
+
+            </form>
+
+            <div class="password-box">
+                <h3>Alterar senha</h3>
+
+                <form asp-controller="Perfil" asp-action="AlterarSenha" method="post">
+                    <input type="password" name="senhaAtual" placeholder="Senha atual">
+                    <input type="password" name="novaSenha" placeholder="Nova senha">
+                    <input type="password" name="confirmarSenha" placeholder="Confirmar nova senha">
+
+                    <button type="submit">Alterar senha</button>
+                </form>
+            </div>
+
+            <p class="msg">@ViewBag.Msg</p>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/perfil.js"></script>
+}
