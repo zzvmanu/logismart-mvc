@@ -4,10 +4,12 @@
 
 <div class="cliente-page">
 
-    <h1>Meus Pedidos 📦</h1>
+    <h1>Meus Pedidos </h1>
 
     <!-- BOTÃO NOVO PEDIDO -->
+    <a asp-controller="Cliente" asp-action="Produtos">
     <button class="btn-novo">+ Novo Pedido</button>
+	</a>
 
     <!-- LISTA DE PEDIDOS -->
     @foreach (var pedido in ViewBag.Pedidos)

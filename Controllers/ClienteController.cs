@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LogiSmartMVC.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace LogiSmartMVC.Controllers
 {
@@ -18,6 +20,23 @@ namespace LogiSmartMVC.Controllers
             }
 
             return View();
+        }
+        public IActionResult Produtos()
+        {
+            return View(DadosFake.Produtos);
+        }
+
+        [HttpPost]
+        public IActionResult Comprar(int id)
+        {
+            var produto = DadosFake.Produtos.FirstOrDefault(p => p.Id == id);
+
+            if (produto != null && produto.Quantidade > 0)
+            {
+                produto.Quantidade--;
+            }
+
+            return RedirectToAction("Produtos");
         }
     }
 }
