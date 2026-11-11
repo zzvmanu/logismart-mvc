@@ -60,7 +60,7 @@ public class LoginController : Controller
         {
             Email = email,
             Senha = senha,
-            Tipo = tipo
+            Tipo = "Cliente"
         });
 
         return RedirectToAction("Index");

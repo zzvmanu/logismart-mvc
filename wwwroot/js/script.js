@@ -1,4 +1,3 @@
-<script src="~/js/script.js"></script>
 
 //VLibras aqui
 

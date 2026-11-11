@@ -1,6 +1,13 @@
-/* ================================================= */
-/* RESET / BASE                                      */
-/* ================================================= */
+
+/* =========================================================
+   LOGISMART - ESTILIZAÇÃO GLOBAL
+   Identidade visual: Azul-marinho, azul e branco
+========================================================= */
+
+
+/* =========================================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+========================================================= */
 
 * {
     margin: 0;
@@ -10,10 +17,12 @@
 }
 
 html, body {
-    height: 100%;
+    width: 100%;
+    min-height: 100%;
 }
 
 body {
+    min-height: 100vh;
     background: #0f172a;
     color: #f1f5f9;
     display: flex;
@@ -22,22 +31,12 @@ body {
 
 main {
     width: 100%;
-    flex: 1;
+    flex: 1 0 auto;
     padding-bottom: 40px;
-}
+}}
 
 footer {
     position: static !important;
-}
-
-
-/* ================================================= */
-/* LAYOUT GERAL                                      */
-/* ================================================= */
-
-.container {
-    width: 1100px;
-    margin: 0 auto;
 }
 
 h1 {
@@ -47,14 +46,31 @@ h1 {
 h2 {
     margin-bottom: 10px;
 }
+
 p {
-    color: #cbd5f5;
+    color: #cbd5e1;
+}
+
+a {
+    transition: 0.3s;
 }
 
 
-/* ================================================= */
-/* MENU / HEADER                                     */
-/* ================================================= */
+/* =========================================================
+   2. LAYOUT E CONTAINERS
+========================================================= */
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
+/* =========================================================
+   3. CABEÇALHO E NAVEGAÇÃO
+========================================================= */
 
 header {
     background: #020617;
@@ -65,32 +81,93 @@ header {
 nav ul {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 25px;
     list-style: none;
 }
 
 nav a {
     text-decoration: none;
-    color: #cbd5f5;
+    color: #cbd5e1;
     font-weight: bold;
-    transition: 0.3s;
 }
 
     nav a:hover {
         color: #38bdf8;
     }
 
-    .nav-login {
+.nav-login {
     background: #1b24db;
     color: white !important;
-    padding: 6px 15px;
+    padding: 8px 15px;
     border-radius: 6px;
+}
+
+
+/* =========================================================
+   4. BOTÕES GERAIS
+========================================================= */
+
+button {
+    background: #e5e7eb;
+    color: #0f172a;
+    font-weight: bold;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    button:hover {
+        opacity: 0.85;
+    }
+
+    button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    button[type="submit"] {
+        margin-top: 15px;
+        padding: 12px;
+        background: #1b24db;
+        color: white;
+        border-radius: 8px;
+        font-weight: bold;
     }
 
 
-/* ================================================= */
-/* DASHBOARD (ADMIN)                                 */
-/* ================================================= */
+/* =========================================================
+   5. FORMULÁRIOS
+========================================================= */
+
+input,
+select,
+textarea {
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    outline: none;
+}
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        border-color: #38bdf8;
+    }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   6. DASHBOARD ADMINISTRATIVO
+========================================================= */
 
 .dashboard {
     display: flex;
@@ -104,13 +181,17 @@ nav a {
     padding: 40px;
 }
 
+    .admin-page h1 {
+        text-align: center;
+    }
+
     .admin-page .card {
         width: 200px;
         min-width: 200px;
         background: #1e293b;
         padding: 20px;
         border-radius: 12px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         text-align: center;
         transition: 0.3s;
     }
@@ -123,33 +204,29 @@ nav a {
             margin-bottom: 10px;
             color: #38bdf8;
         }
+
         .admin-page .card p {
             font-size: 22px;
             font-weight: bold;
         }
 
-        .admin-page h1 {
-        text-align: center;
-        }
 
-
-
-    /* ================================================= */
-    /* TABELAS                                           */
-    /* ================================================= */
+    /* =========================================================
+   7. TABELAS
+========================================================= */
 
     .admin-page table {
         width: 100%;
         max-width: 900px;
-        margin: auto;
-        margin-top:30px;
+        margin: 30px auto 0;
         border-collapse: collapse;
         background: #1e293b;
         border-radius: 10px;
         overflow: hidden;
     }
 
-th, td {
+th,
+td {
     padding: 12px;
     text-align: center;
 }
@@ -166,51 +243,16 @@ tr:nth-child(odd) {
     background: #0f172a;
 }
 
-table, th, td {
-    color: #f1f5f9 !important;
+table,
+th,
+td {
+    color: #f1f5f9;
 }
 
 
-/* ================================================= */
-/* BOTÕES                                            */
-/* ================================================= */
-
-button {
-    background: #e5e7eb;
-    font-weight: bold;
-    padding: 6px 10px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin: 2px;
-}
-
-    button:hover {
-        opacity: 0.8;
-        background:#cbd5f5;
-    }
-
-
-/* ================================================= */
-/* STATUS                                            */
-/* ================================================= */
-
-.status {
-    font-weight: bold;
-}
-
-.andamento {
-    color: #facc15;
-}
-
-.concluido {
-    color: #22c55e;
-}
-
-
-/* ================================================= */
-/* CLIENTE / PERFIL                                  */
-/* ================================================= */
+/* =========================================================
+   8. CLIENTE E PEDIDOS
+========================================================= */
 
 .cliente-page {
     padding: 40px;
@@ -242,9 +284,11 @@ button {
     padding: 20px;
     border-radius: 10px;
 }
-/* ================================================= */
-/* MOTORISTA                                         */
-/* ================================================= */
+
+
+/* =========================================================
+   9. MOTORISTA E ENTREGAS
+========================================================= */
 
 .entregas {
     display: flex;
@@ -270,6 +314,7 @@ button {
 .concluido {
     color: #22c55e;
 }
+
 .btn-concluir {
     margin-top: 10px;
     background: #22c55e;
@@ -279,20 +324,21 @@ button {
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
 }
 
     .btn-concluir:hover {
         background: #16a34a;
     }
-.motorista-page h1{
+
+.motorista-page h1 {
     text-align: center;
     margin-bottom: 25px;
 }
 
-/* ================================================= */
-/* LOGIN                                             */
-/* ================================================= */
+
+/* =========================================================
+   10. LOGIN
+========================================================= */
 
 .login {
     width: 100%;
@@ -312,11 +358,12 @@ button {
         background: #05032b;
         padding: 40px;
         border-radius: 16px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
 
 
-/* ABAS */
+/* Abas de login e cadastro */
+
 .tabs {
     display: flex;
     margin-bottom: 20px;
@@ -331,39 +378,9 @@ button {
 
     .tabs .active {
         background: #1b24db;
-        color: #000;
+        color: white;
         font-weight: bold;
     }
-
-
-/* FORMULÁRIOS */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-input {
-    margin: 8px 0;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #000;
-    outline: none;
-}
-
-    input:focus {
-        border-color: #1b24db;
-    }
-
-
-/* BOTÃO LOGIN */
-button[type="submit"] {
-    margin-top: 15px;
-    padding: 12px;
-    background: #1b24db;
-    color: #000;
-    border-radius: 8px;
-    font-weight: bold;
-}
 
 .hidden {
     display: none;
@@ -372,27 +389,347 @@ button[type="submit"] {
 .forgot {
     font-size: 12px;
     text-align: right;
-    color: #555;
+    color: #cbd5e1;
 }
 
 .erro-msg {
-    color: red;
+    color: #ef4444;
     text-align: center;
     margin-top: 10px;
 }
 
 
-/* ================================================= */
-/* RESPONSIVO                                        */
-/* ================================================= */
+/* =========================================================
+   11. LOJA - CABEÇALHO E PESQUISA
+========================================================= */
+
+.loja-container {
+    width: 100%;
+    max-width: 1250px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.loja-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+    .loja-cabecalho h1 {
+        margin-bottom: 8px;
+    }
+
+    .loja-cabecalho p {
+        opacity: 0.75;
+    }
+
+.loja-busca {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    max-width: 500px;
+}
+
+    .loja-busca input {
+        flex: 1;
+        min-width: 0;
+        margin: 0;
+        padding: 13px;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        background: #1e293b;
+        color: white;
+    }
+
+        .loja-busca input::placeholder {
+            color: #94a3b8;
+        }
+
+    .loja-busca button {
+        margin: 0;
+        padding: 13px 18px;
+        background: #1769aa;
+        color: white;
+    }
+
+        .loja-busca button:hover {
+            background: #0d4f86;
+        }
+
+
+/* =========================================================
+   12. LOJA - CATEGORIAS
+========================================================= */
+
+.loja-categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.categoria-link {
+    padding: 9px 16px;
+    border: 1px solid #1769aa;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #cbd5e1;
+    background: #1e293b;
+}
+
+    .categoria-link:hover {
+        background: #1769aa;
+        color: white;
+    }
+
+
+/* =========================================================
+   13. LOJA - TÍTULOS
+========================================================= */
+
+.loja-titulo-produtos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .loja-titulo-produtos span {
+        color: #94a3b8;
+        font-size: 14px;
+    }
+
+
+/* =========================================================
+   14. LOJA - GRID DE PRODUTOS
+========================================================= */
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+
+/* =========================================================
+   15. LOJA - CARD DE PRODUTO
+========================================================= */
+
+.produto-card {
+    overflow: hidden;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    background: #1e293b;
+    color: #f1f5f9;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .produto-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+    }
+
+.produto-imagem {
+    height: 170px;
+    background: #e2e8f0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .produto-imagem > span {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: #1769aa;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 15px;
+        font-size: 11px;
+    }
+
+.produto-imagem-placeholder {
+    color: #1769aa;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.produto-info {
+    padding: 16px;
+}
+
+    .produto-info h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+        color: #f1f5f9;
+    }
+
+.produto-descricao {
+    min-height: 42px;
+    color: #cbd5e1;
+    font-size: 13px;
+}
+
+.produto-preco {
+    font-size: 23px;
+    font-weight: bold;
+    color: #38bdf8;
+    margin: 15px 0 8px;
+}
+
+.produto-estoque {
+    font-size: 12px;
+    color: #4ade80;
+}
+
+.sem-estoque {
+    color: #f87171;
+}
+
+
+/* Botão de compra */
+
+.btn-comprar {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #1769aa;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .btn-comprar:hover {
+        background: #0d4f86;
+    }
+
+    .btn-comprar:disabled {
+        background: #64748b;
+        cursor: not-allowed;
+    }
+
+
+/* =========================================================
+   16. LOJA - PRODUTOS NÃO ENCONTRADOS
+========================================================= */
+
+.produtos-vazios {
+    text-align: center;
+    padding: 60px 20px;
+    background: #1e293b;
+    border-radius: 12px;
+}
+
+    .produtos-vazios h3 {
+        margin-bottom: 10px;
+    }
+
+    .produtos-vazios a {
+        display: inline-block;
+        margin-top: 15px;
+        color: #38bdf8;
+        text-decoration: none;
+    }
+
+
+/* =========================================================
+   17. RESPONSIVIDADE
+========================================================= */
 
 @media (max-width: 768px) {
+
     nav ul {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
     }
 
     .dashboard {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .admin-page,
+    .cliente-page {
+        padding: 20px;
+    }
+
+    .loja-cabecalho {
+        align-items: stretch;
+    }
+
+    .loja-busca {
+        max-width: 100%;
+    }
+
+    .produtos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .produto-info {
+        padding: 12px;
+    }
+
+    .produto-preco {
+        font-size: 19px;
     }
 }
+
+@media (max-width: 420px) {
+
+    .produtos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .loja-busca {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+        .loja-busca button {
+            width: 100%;
+        }
+
+    .loja-titulo-produtos {
+        align-items: flex-start;
+        gap: 10px;
+        flex-direction: column;
+    }
+}
+/* CORREÇÃO DEFINITIVA DO RODAPÉ */
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+    body > main[role="main"] {
+        flex: 1 0 auto;
+        min-height: 0;
+        padding-bottom: 40px;
+    }
+
+    body > footer.footer {
+        position: static !important;
+        inset: auto !important;
+        width: 100%;
+        flex-shrink: 0;
+        margin-top: auto;
+        background: #0f172a;
+        color: #cbd5e1;
+    }

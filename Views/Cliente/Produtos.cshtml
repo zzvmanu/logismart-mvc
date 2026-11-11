@@ -1,34 +1,117 @@
 ﻿@model List<LogiSmartMVC.Models.Produto>
 
-<h1>Produtos Disponíveis </h1>
+@{
+    ViewData["Title"] = "Loja - LogiSmart";
+    var categorias = Model
+        .Select(p => p.Categoria)
+        .Where(c => !string.IsNullOrWhiteSpace(c))
+        .Distinct()
+        .OrderBy(c => c)
+        .ToList();
+}
 
-<table border="1" cellpadding="10">
-    <tr>
-        <th>Nome</th>
-        <th>Preço</th>
-        <th>Estoque</th>
-        <th>Ação</th>
-    </tr>
+<div class="loja-container">
 
-    @foreach (var p in Model)
+    <div class="loja-cabecalho">
+        <div>
+            <h1>Explore nossos produtos</h1>
+            <p>Encontre tudo o que você precisa em um só lugar.</p>
+        </div>
+
+        <form asp-action="Produtos" method="get" class="loja-busca">
+            <input type="text"
+                   name="busca"
+                   placeholder="O que você está procurando?"
+                   value="@Context.Request.Query["busca"]" />
+
+            <button type="submit">Pesquisar</button>
+        </form>
+    </div>
+
+    <div class="loja-categorias">
+        <a asp-action="Produtos" class="categoria-link">Todos</a>
+
+        @foreach (var categoria in categorias)
+        {
+            <a asp-action="Produtos"
+               asp-route-categoria="@categoria"
+               class="categoria-link">
+                @categoria
+            </a>
+        }
+    </div>
+
+    <div class="loja-titulo-produtos">
+        <h2>Produtos disponíveis</h2>
+        <span>@Model.Count produtos</span>
+    </div>
+
+    @if (Model.Any())
     {
-        <tr>
-            <td>@p.Nome</td>
-            <td>R$ @p.Preco.ToString("F2")</td>
-            <td>@p.Quantidade</td>
-            <td>
-                @if (p.Quantidade > 0)
-                {
-                    <form asp-action="Comprar" method="post">
-                        <input type="hidden" name="id" value="@p.Id" />
-                        <button type="submit">Comprar</button>
-                    </form>
-                }
-                else
-                {
-                    <span style="color:red;">Indisponível</span>
-                }
-            </td>
-        </tr>
+        <div class="produtos-grid">
+
+            @foreach (var p in Model)
+            {
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <span>@p.Categoria</span>
+                        <div class="produto-imagem-placeholder">
+                            <span>LogiSmart</span>
+                        </div>
+                    </div>
+
+                    <div class="produto-info">
+                        <h3>@p.Nome</h3>
+
+                        <p class="produto-descricao">
+                            @p.Descricao
+                        </p>
+
+                        <div class="produto-preco">
+                            R$ @p.Preco.ToString("N2")
+                        </div>
+
+                        <p class="produto-estoque">
+                            @if (p.Quantidade > 0)
+                            {
+                                <span>@p.Quantidade unidades disponíveis</span>
+                            }
+                            else
+                            {
+                                <span class="sem-estoque">Produto indisponível</span>
+                            }
+                        </p>
+
+                        @if (p.Quantidade > 0)
+                        {
+                            <form asp-action="Comprar" method="post">
+                                <input type="hidden" name="id" value="@p.Id" />
+                                <button type="submit" class="btn-comprar">
+                                    Comprar
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <button class="btn-comprar" disabled>
+                                Sem estoque
+                            </button>
+                        }
+                    </div>
+
+                </article>
+            }
+
+        </div>
     }
-</table>
+    else
+    {
+        <div class="produtos-vazios">
+            <h3>Nenhum produto encontrado</h3>
+            <p>Tente pesquisar por outro nome ou categoria.</p>
+            <a asp-action="Produtos">Ver todos os produtos</a>
+        </div>
+    }
+
+</div>

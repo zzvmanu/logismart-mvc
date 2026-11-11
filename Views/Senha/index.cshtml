@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Alterar Senha";
+}
+
+<h2>Alterar Senha</h2>
+
+<form asp-controller="Perfil" asp-action="AlterarSenha" method="post">
+
+    <label>Senha Atual</label>
+    <input type="password" name="senhaAtual" />
+
+    <label>Nova Senha</label>
+    <input type="password" name="novaSenha" />
+
+    <label>Confirmar Nova Senha</label>
+    <input type="password" name="confirmarSenha" />
+
+    <button type="submit">
+        Alterar Senha
+    </button>
+
+</form>
+
+<p>@ViewBag.Msg</p>
