@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="../../../Downloads/LogiSmart2/LoginSmart2/LogiSmart2.csproj" />
+  <Project Path="../../../Downloads/LogiSmart2/LogiSmart.Domain/LogiSmart.Domain.csproj" />
   <Project Path="LogiSmartMVC.csproj" />
 </Solution>
